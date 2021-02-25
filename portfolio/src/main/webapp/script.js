@@ -17,7 +17,7 @@
  */
 function addRandomFact() {
   const facts =
-      ['I am an identical twin', 'I enjoy traveling', 'I love dessert', 'I live in Southern California'];
+      ['I am an identical twin', 'I enjoy traveling', 'I love eating dessert', 'I live in Southern California'];
 
   // Pick a random fact.
   const fact = facts[Math.floor(Math.random() * facts.length)];
