@@ -27,6 +27,14 @@ function addRandomFact() {
   factContainer.innerText = fact;
 }
 
+async function showFacts() {
+  const responseFromServer = await fetch('/facts');
+  const textFromResponse = await responseFromServer.text();
+
+  const factContainer = document.getElementById('fact-container');
+  factContainer.innerText = textFromResponse;
+}
+
 $(document).ready(function(){
   // Initialize Tooltip
   $('[data-toggle="tooltip"]').tooltip(); 
