@@ -29,10 +29,9 @@ function addRandomFact() {
 
 async function showFacts() {
   const responseFromServer = await fetch('/facts');
-  const textFromResponse = await responseFromServer.text();
-
+  const textFromResponse = await responseFromServer.json();
   const factContainer = document.getElementById('fact-container');
-  factContainer.innerText = textFromResponse;
+  factContainer.innerText = textFromResponse[Math.floor(Math.random() * 3)];
 }
 
 $(document).ready(function(){
