@@ -15,24 +15,12 @@
 /**
  * Adds a random fact to the page.
  */
-function addRandomFact() {
-  const facts =
-      ['I am an identical twin', 'I enjoy traveling', 'I love eating dessert', 'I live in Southern California'];
-
-  // Pick a random fact.
-  const fact = facts[Math.floor(Math.random() * facts.length)];
-
-  // Add it to the page.
-  const factContainer = document.getElementById('fact-container');
-  factContainer.innerText = fact;
-}
 
 async function showFacts() {
   const responseFromServer = await fetch('/facts');
-  const textFromResponse = await responseFromServer.text();
-
+  const textFromResponse = await responseFromServer.json();
   const factContainer = document.getElementById('fact-container');
-  factContainer.innerText = textFromResponse;
+  factContainer.innerText = textFromResponse[Math.floor(Math.random() * textFromResponse.length)];
 }
 
 $(document).ready(function(){
