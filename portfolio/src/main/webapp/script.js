@@ -17,24 +17,24 @@
  */
 
 function requestTranslation() {
-        const text = document.getElementById('text').value;
-        const languageCode = document.getElementById('language').value;
+    const text = document.getElementById('text').value;
+    const languageCode = document.getElementById('language').value;
 
-        const resultContainer = document.getElementById('result');
-        resultContainer.innerText = 'Loading...';
+    const resultContainer = document.getElementById('result');
+    resultContainer.innerText = 'Loading...';
 
-        const params = new URLSearchParams();
-        params.append('text', text);
-        params.append('languageCode', languageCode);
+    const params = new URLSearchParams();
+    params.append('text', text);
+    params.append('languageCode', languageCode);
 
-        fetch('/translate', {
-          method: 'POST',
-          body: params
-        }).then(response => response.text())
-        .then((translatedMessage) => {
-          resultContainer.innerText = translatedMessage;
-        });
-      }
+    fetch('/translate', {
+        method: 'POST',
+        body: params
+    }).then(response => response.text())
+    .then((translatedMessage) => {
+        resultContainer.innerText = translatedMessage;
+    });
+    }
 
 /**
  * Adds a random fact to the page.
